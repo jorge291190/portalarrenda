@@ -1,0 +1,22 @@
+<div style="width: 98%; margin: 0 auto; margin-top: 1%;" class="shadow-lg p-3 mb-5 bg-white rounded">
+    <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
+            <div style="width: 95%; height: 95%;" *ngIf="tile.id === 1">
+                <mat-toolbar color="primary" style="height: 30px;"> MENU</mat-toolbar>
+                <div class="main-container m-5">
+                    <div *ngFor="let item of botones">
+                        <button style="width: 300px; display: block; margin: auto; margin-top: 1%;" mat-raised-button color="primary" (click)="navegar(item.ruta)">{{item.texto}}</button>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 95%; height: 95%;" *ngIf="tile.id === 2">
+
+                <img src="https://api.hibe.com/file/images/upload/2019/3/aaa/aiw/cDExMTg1MF8xOTkzMDRfOTM3.png" width="90%" style="margin: 0 auto; margin-top: 3%;">
+                <app-botonera></app-botonera>
+            </div>
+            <div style="width: 95%; height: 95%;" *ngIf="tile.id === 2">
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</div>

@@ -1,0 +1,93 @@
+<div style="width: 98%; margin: 0 auto; margin-top: 1%;" class="shadow-lg p-3 mb-5 bg-white rounded">
+    <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
+            <div style="width: 95%; height: 95%;" *ngIf="tile.id === 1">
+                <mat-toolbar color="primary" style="height: 30px;">FACTURAS</mat-toolbar>
+
+                <div class="main-container m-3">
+
+                    <mat-form-field>
+                        <mat-label>Filtro</mat-label>
+                        <input matInput (keyup)="applyFilter($event)" placeholder="Busqueda">
+                    </mat-form-field>
+
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="folio">
+                            <th mat-header-cell *matHeaderCellDef> Folio </th>
+                            <td mat-cell *matCellDef="let element"> {{element.record_id_}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="fecha">
+                            <th mat-header-cell *matHeaderCellDef> Fecha Emision </th>
+                            <td mat-cell *matCellDef="let element"> {{element.xml_emitidos___fecha | date}} </td>
+                        </ng-container>
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="razon">
+                            <th mat-header-cell *matHeaderCellDef> Razon Social </th>
+                            <td mat-cell *matCellDef="let element"> {{element.razon_social_cliente}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="uuid">
+                            <th mat-header-cell *matHeaderCellDef> Total </th>
+                            <td mat-cell *matCellDef="let element"> {{element.importe_total | currency}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="contrato">
+                            <th mat-header-cell *matHeaderCellDef>No. Contrato</th>
+                            <td mat-cell *matCellDef="let element">
+
+                                {{element.__decontrato}}
+                            </td>
+                        </ng-container>
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="pdf">
+                            <th mat-header-cell *matHeaderCellDef> PDF </th>
+                            <td mat-cell *matCellDef="let element">
+
+                                <button mat-raised-button color="primary" (click)="internet(element.pdf)">PDF</button>
+
+                            </td>
+                        </ng-container>
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="xml">
+                            <th mat-header-cell *matHeaderCellDef> XML </th>
+                            <td mat-cell *matCellDef="let element">
+
+                                <button mat-raised-button color="primary" (click)="internet(element.xml)">XML</button> </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="ver">
+                            <th mat-header-cell *matHeaderCellDef>Ver Facturas</th>
+                            <td mat-cell *matCellDef="let element">
+
+                                <button mat-raised-button color="warn" (click)="navegar(element,'factura')">Ver</button>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+
+                </div>
+
+            </div>
+
+            <div style="width: 95%; height: 95%;" *ngIf="tile.id === 2">
+
+                <img src="https://api.hibe.com/file/images/upload/2019/3/aaa/aiw/cDExMTg1MF8xOTkzMDRfOTM3.png" width="90%" style="margin: 0 auto; margin-top: 3%;">
+                <app-botonera></app-botonera>
+            </div>
+            <div style="width: 95%; height: 95%;" *ngIf="tile.id === 2">
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</div>
