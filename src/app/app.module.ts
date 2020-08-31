@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
@@ -42,6 +41,9 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { BotoneraComponent } from './componentes/botonera/botonera.component';
+import { NotascreditoComponent } from './componentes/notascredito/notascredito.component';
+import { PagosComponent } from './componentes/pagos/pagos.component';
+import { SegurosComponent } from './componentes/seguros/seguros.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,10 @@ import { BotoneraComponent } from './componentes/botonera/botonera.component';
     FacturasComponent,
     LoginComponent,
     MenuComponent,
-    NavbarComponent
+    NavbarComponent,
+    NotascreditoComponent,
+    PagosComponent,
+    SegurosComponent
   ],
   imports: [
     BrowserModule,

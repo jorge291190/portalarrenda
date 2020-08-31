@@ -39,8 +39,7 @@ export class FacturaComponent implements OnInit {
 
     this.http.post('https://tciconsultoria.com/portalarrenda/servicios.php', credencial).subscribe(
       (data: any) => {
-        Array.from(data.data.record, 
-          (element: any) => {
+      data.data.forEach(element => {
           const temp = {
               cantidad: element.cantidad_f_,
               clave: element.clave_sat___layout_,

@@ -1,0 +1,73 @@
+<div style="width: 98%; margin: 0 auto; margin-top: 1%;" class="shadow-lg p-3 mb-5 bg-white rounded">
+    <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
+            <div style="width: 95%; height: 95%;" *ngIf="tile.id === 1">
+                <mat-toolbar color="primary" style="height: 30px;">POLIZAS DE SEGURO</mat-toolbar>
+
+                <div class="main-container m-3">
+
+                    <mat-form-field>
+                        <mat-label>Filtro</mat-label>
+                        <input matInput (keyup)="applyFilter($event)" placeholder="Busqueda">
+                    </mat-form-field>
+
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="poliza">
+                            <th mat-header-cell *matHeaderCellDef> Numero Poliza </th>
+                            <td mat-cell *matCellDef="let element"> {{element.no_poliza}} </td>
+                        </ng-container>
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="proveedor">
+                            <th mat-header-cell *matHeaderCellDef> Aseguradora </th>
+                            <td mat-cell *matCellDef="let element"> {{element.proveedor___nombre}} </td>
+                        </ng-container>
+                                 <!-- Name Column -->
+                                 <ng-container matColumnDef="contrato">
+                                    <th mat-header-cell *matHeaderCellDef> Contrato </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.vehiculo___concentrador_no__contrato}} </td>
+                                </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="fechaini">
+                            <th mat-header-cell *matHeaderCellDef> Fecha Inicial </th>
+                            <td mat-cell *matCellDef="let element"> {{element.fecha_inicial_f}} </td>
+                        </ng-container>
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="fechafin">
+                            <th mat-header-cell *matHeaderCellDef> Fecha Final </th>
+                            <td mat-cell *matCellDef="let element"> {{element.fecha_final_f}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="descarga">
+                            <th mat-header-cell *matHeaderCellDef> Desacargar Poliza </th>
+                            <td mat-cell *matCellDef="let element">
+
+                                <button mat-raised-button color="primary" (click)="internet(element.descarga)">Descargar</button>
+
+                            </td> </ng-container>
+
+                        
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+
+                </div>
+
+            </div>
+
+            <div style="width: 95%; height: 95%;" *ngIf="tile.id === 2">
+
+                <img src="https://api.hibe.com/file/images/upload/2019/3/aaa/aiw/cDExMTg1MF8xOTkzMDRfOTM3.png" width="90%" style="margin: 0 auto; margin-top: 3%;">
+                <app-botonera></app-botonera>
+            </div>
+            <div style="width: 95%; height: 95%;" *ngIf="tile.id === 2">
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</div>

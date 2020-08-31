@@ -11,8 +11,12 @@ export class MenuComponent implements OnInit {
 botones: any  = [
   {texto: 'Consulta Facturas',
     ruta: 'facturas'},
-    {texto: 'Consulta Pagos',
-    ruta: 'complemento'}
+    {texto: 'Notas de Credito',
+    ruta: 'notas'},
+    {texto: 'Complementos de Pago',
+    ruta: 'pagos'},
+    {texto: 'Poliza de Seguro',
+    ruta: 'seguros'}
 ];
 
 tiles: any[] = [
@@ -29,4 +33,6 @@ tiles: any[] = [
   this.router.navigateByUrl(ruta);
 
   }
+
+  
 }

@@ -4,13 +4,15 @@ import { HttpClient } from '@angular/common/http';
 import {MatTableDataSource,MatTable} from '@angular/material/table';
 import Swal from 'sweetalert2';
 
-@Component({
-  selector: 'app-facturas',
-  templateUrl: './facturas.component.html',
-  styleUrls: ['./facturas.component.css']
-})
-export class FacturasComponent implements OnInit {
 
+@Component({
+  selector: 'app-pagos',
+  templateUrl: './pagos.component.html',
+  styleUrls: ['./pagos.component.css']
+})
+export class PagosComponent implements OnInit {
+
+  
   facturas: any = new Array();
   @ViewChild(MatTable) table: MatTable<any>;
   lectura: any;
@@ -18,7 +20,7 @@ export class FacturasComponent implements OnInit {
     {id: 1, text: 'One', cols: 3, rows: 6, color: ''},
     {id: 2, text: 'Two', cols: 1, rows: 6, color: ''}
   ];
-  displayedColumns: string[] = ['folio', 'fecha', 'razon', 'uuid', 'contrato', 'pdf', 'xml', 'ver'];
+  displayedColumns: string[] = ['folio', 'fecha', 'razon', 'xml', 'pdf', 'descarga'];
   dataSource;
   constructor(private router: Router,
               private http: HttpClient) {
@@ -32,8 +34,9 @@ export class FacturasComponent implements OnInit {
     Swal.showLoading();
     this.lectura = JSON.parse(localStorage.getItem('credencial'));
     const credencial = {rfc: this.lectura.rfc};
-    this.http.post('https://tciconsultoria.com/portalarrenda/facturas.php', JSON.stringify(credencial)).subscribe(
+    this.http.post('https://tciconsultoria.com/portalarrenda/pagos.php', JSON.stringify(credencial)).subscribe(
       (data: any) => {
+        console.log(data.data);
         
         data.data.forEach(element => {
 

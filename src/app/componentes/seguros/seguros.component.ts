@@ -5,11 +5,11 @@ import {MatTableDataSource,MatTable} from '@angular/material/table';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-facturas',
-  templateUrl: './facturas.component.html',
-  styleUrls: ['./facturas.component.css']
+  selector: 'app-seguros',
+  templateUrl: './seguros.component.html',
+  styleUrls: ['./seguros.component.css']
 })
-export class FacturasComponent implements OnInit {
+export class SegurosComponent implements OnInit {
 
   facturas: any = new Array();
   @ViewChild(MatTable) table: MatTable<any>;
@@ -18,7 +18,7 @@ export class FacturasComponent implements OnInit {
     {id: 1, text: 'One', cols: 3, rows: 6, color: ''},
     {id: 2, text: 'Two', cols: 1, rows: 6, color: ''}
   ];
-  displayedColumns: string[] = ['folio', 'fecha', 'razon', 'uuid', 'contrato', 'pdf', 'xml', 'ver'];
+  displayedColumns: string[] = ['poliza','proveedor', 'contrato','fechaini', 'fechafin', 'descarga'];
   dataSource;
   constructor(private router: Router,
               private http: HttpClient) {
@@ -32,14 +32,17 @@ export class FacturasComponent implements OnInit {
     Swal.showLoading();
     this.lectura = JSON.parse(localStorage.getItem('credencial'));
     const credencial = {rfc: this.lectura.rfc};
-    this.http.post('https://tciconsultoria.com/portalarrenda/facturas.php', JSON.stringify(credencial)).subscribe(
+    this.http.post('https://tciconsultoria.com/portalarrenda/seguros.php', JSON.stringify(credencial)).subscribe(
       (data: any) => {
+
+        console.log(data.data);
         
+        if(data.data !== undefined){
         data.data.forEach(element => {
 
           this.facturas.push(element);
         });
-
+        }
         this.dataSource = new MatTableDataSource(this.facturas);
 
         Swal.close();

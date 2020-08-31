@@ -2,7 +2,7 @@
     <mat-grid-list cols="4" rowHeight="100px">
         <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
             <div style="width: 95%; height: 95%;" *ngIf="tile.id === 1">
-                <mat-toolbar color="primary" style="height: 30px;">FACTURAS</mat-toolbar>
+                <mat-toolbar color="primary" style="height: 30px;">COMPLEMENTOS DE PAGO</mat-toolbar>
 
                 <div class="main-container m-3">
 
@@ -28,23 +28,9 @@
                         <!-- Weight Column -->
                         <ng-container matColumnDef="razon">
                             <th mat-header-cell *matHeaderCellDef> Razon Social </th>
-                            <td mat-cell *matCellDef="let element"> {{element.razon_social_cliente}} </td>
+                            <td mat-cell *matCellDef="let element"> {{element.clientes___nombre}} </td>
                         </ng-container>
 
-                        <!-- Symbol Column -->
-                        <ng-container matColumnDef="uuid">
-                            <th mat-header-cell *matHeaderCellDef> Total </th>
-                            <td mat-cell *matCellDef="let element"> {{element.importe_total | currency}} </td>
-                        </ng-container>
-
-                        <!-- Symbol Column -->
-                        <ng-container matColumnDef="contrato">
-                            <th mat-header-cell *matHeaderCellDef>No. Contrato</th>
-                            <td mat-cell *matCellDef="let element">
-
-                                {{element.__decontrato}}
-                            </td>
-                        </ng-container>
                         <!-- Symbol Column -->
                         <ng-container matColumnDef="pdf">
                             <th mat-header-cell *matHeaderCellDef> PDF </th>
@@ -59,15 +45,15 @@
                             <th mat-header-cell *matHeaderCellDef> XML </th>
                             <td mat-cell *matCellDef="let element">
 
-                                <button mat-raised-button color="primary" (click)="internet(element.xml_emitidos)">XML</button> </td>
+                                <button mat-raised-button color="primary" (click)="internet(element.xml)">XML</button> </td>
                         </ng-container>
 
                         <!-- Symbol Column -->
-                        <ng-container matColumnDef="ver">
-                            <th mat-header-cell *matHeaderCellDef>Ver Facturas</th>
+                        <ng-container matColumnDef="descarga">
+                            <th mat-header-cell *matHeaderCellDef>Descarga de Complemento</th>
                             <td mat-cell *matCellDef="let element">
 
-                                <button mat-raised-button color="warn" (click)="navegar(element,'factura')">Ver</button>
+                                <button mat-raised-button color="warn" (click)="internet(element.descarga)">Descargar</button>
                             </td>
                         </ng-container>
 
