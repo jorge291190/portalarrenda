@@ -40,10 +40,12 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
+
 import { BotoneraComponent } from './componentes/botonera/botonera.component';
 import { NotascreditoComponent } from './componentes/notascredito/notascredito.component';
 import { PagosComponent } from './componentes/pagos/pagos.component';
 import { SegurosComponent } from './componentes/seguros/seguros.component';
+
 
 @NgModule({
   declarations: [
@@ -60,15 +62,15 @@ import { SegurosComponent } from './componentes/seguros/seguros.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    MatCheckboxModule,
     MatCheckboxModule,
     MatButtonModule,
     MatInputModule,
     MatAutocompleteModule,
     MatDatepickerModule,
+    FormsModule,
     MatFormFieldModule,
     MatRadioModule,
     MatSelectModule,
@@ -94,7 +96,7 @@ import { SegurosComponent } from './componentes/seguros/seguros.component';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    FormsModule
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

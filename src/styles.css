@@ -2,28 +2,27 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 html,
 body {
-    height: 100%;
-    background: rgb(226,226,226);
-    background: linear-gradient(90deg, rgba(226,226,226,1) 5%, 
-                                       rgba(180,58,58,1) 46%, 
-                                       rgba(246,246,246,1) 82%);}
-
-body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+    height: 100%;
+    background: rgb(226,226,226);
+    background-image: url("assets/back.png"); /* The image used */
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 500px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+  }
 
 div {
     overflow: scroll;
   
 }
 
-::-webkit-scrollbar{
-
-    width: 0;
-   
-   }
 .mat-toolbar.mat-primary {
     background-color: rgb(208, 44, 56);
 }
+
+
+html, body { height: 100%; }
 
